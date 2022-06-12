@@ -304,10 +304,9 @@ transform:translate(-50%);
         </div>
         <nav>
             <ul>
-		    <li><a href="https://www.reddit.com/u/asgpl"><i class="fa fa-reddit" style="font-size:30px;"></i></a></li>
-            <li><a href="https://www.twitter.com/gopalpy"><i class="fa fa-twitter" style="font-size:30px;"></i></a></li>
-            <li><a href="https://www.instagram.com/gopalpy"><i class="fa fa-instagram" style="font-size:30px;"></i></a></li>
-            <li><a href="https://github.com/asgpl"><i class="fa fa-code" style="font-size:30px;"></i></a></li>
+            <li><a href="https://www.twitter.com/iagpl"><i class="fa fa-twitter" style="font-size:30px;"></i></a></li>
+	    <li><a href="https://www.reddit.com/u/iagpl"><i class="fa fa-reddit" style="font-size:30px;"></i></a></li>
+            <li><a href="https://github.com/iagpl"><i class="fa fa-code" style="font-size:30px;"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -357,11 +356,7 @@ transform:translate(-50%);
 
 
 <script type="text/javascript">
-
 	var apidata;
-
-
-	alert("Please wait a while data is loading!");
 
 	document.getElementById('country_name').innerHTML = "Loading...";
 	document.getElementById('total').innerHTML = "Loading...";
@@ -422,13 +417,13 @@ transform:translate(-50%);
 	var selectindex = document.getElementById('selectCountry').selectedIndex;
 	
 	let Country = apidata.Countries[selectindex-1].Country;
-	let TotalConfirmed = apidata.Countries[selectindex-1].TotalConfirmed;
-	let TotalDeaths = apidata.Countries[selectindex-1].TotalDeaths;
-	let TotalRecovered = apidata.Countries[selectindex-1].TotalRecovered;
+	let TotalConfirmed = apidata.Countries[selectindex-1].TotalConfirmed.toLocaleString("en-US");
+	let TotalDeaths = apidata.Countries[selectindex-1].TotalDeaths.toLocaleString("en-US");
+	let TotalRecovered = apidata.Countries[selectindex-1].TotalRecovered.toLocaleString("en-US");
 	
-	let newConfirmed = apidata.Countries[selectindex-1].NewConfirmed;
-	let newDeaths = apidata.Countries[selectindex-1].NewDeaths;
-	let newRecovered = apidata.Countries[selectindex-1].NewRecovered;
+	let newConfirmed = apidata.Countries[selectindex-1].NewConfirmed.toLocaleString("en-US");
+	let newDeaths = apidata.Countries[selectindex-1].NewDeaths.toLocaleString("en-US");
+	let newRecovered = apidata.Countries[selectindex-1].NewRecovered.toLocaleString("en-US");
 	
 	
 	document.getElementById('country_name').innerHTML = Country;
@@ -436,9 +431,9 @@ transform:translate(-50%);
 	document.getElementById('recovered').innerHTML = TotalRecovered;
 	document.getElementById('deaths').innerHTML = TotalDeaths;
 	
-	document.getElementById('newtotal').innerHTML = "+"+newConfirmed;
-	document.getElementById('newrecovered').innerHTML = "+"+newRecovered;
-	document.getElementById('newdeaths').innerHTML = "+"+newDeaths;
+	document.getElementById('newtotal').innerHTML = "+"+newConfirmed+"/Day";
+	document.getElementById('newrecovered').innerHTML = "+"+newRecovered+"/Day";
+	document.getElementById('newdeaths').innerHTML = "+"+newDeaths+"/Day";
 	
 
 }
