@@ -304,9 +304,10 @@ transform:translate(-50%);
         </div>
         <nav>
             <ul>
-            <li><a href="https://www.twitter.com/iagpl"><i class="fa fa-twitter" style="font-size:30px;"></i></a></li>
-	    <li><a href="https://www.reddit.com/u/iagpl"><i class="fa fa-reddit" style="font-size:30px;"></i></a></li>
-            <li><a href="https://github.com/iagpl"><i class="fa fa-code" style="font-size:30px;"></i></a></li>
+            <li><a href="http://gopal.link/twitter"><i class="fa fa-twitter" style="font-size:30px;"></i></a></li>
+	    <li><a href="http://gopal.link/linkedin"><i class="fa fa-linkedin" style="font-size:30px;"></i></a></li>
+	    <li><a href="http://gopal.link/github"><i class="fa fa-github" style="font-size:30px;"></i></a></li>
+            <li><a href="https://github.com/thegopal13/cvd"><i class="fa fa-code" style="font-size:30px;"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -328,11 +329,6 @@ transform:translate(-50%);
                     <div class="title">Total Cases</div>
                     <div class="value" id="total" >-</div>
                     <div class="new-value" id="newtotal" >-</div>
-                </div>
-                <div class="recovered">
-                    <div class="title">Recovered</div>
-                    <div class="value" id="recovered" >-</div>
-                    <div class="new-value" id="newrecovered" >-</div>
                 </div>
                 <div class="deaths">
                     <div class="title">Deaths</div>
@@ -360,7 +356,6 @@ transform:translate(-50%);
 
 	document.getElementById('country_name').innerHTML = "Loading...";
 	document.getElementById('total').innerHTML = "Loading...";
-	document.getElementById('recovered').innerHTML = "Loading...";
 	document.getElementById('deaths').innerHTML = "Loading...";
 	
 </script>
@@ -378,23 +373,19 @@ transform:translate(-50%);
 		country_list.push(jdata.Countries[i].Country);
 		}
 		console.log(jdata);
-		let Country = jdata.Countries[76].Country;
-		let TotalConfirmed = jdata.Countries[76].TotalConfirmed.toLocaleString("en-US");
-		let TotalDeaths = jdata.Countries[76].TotalDeaths.toLocaleString("en-US");
-		let TotalRecovered = jdata.Countries[76].TotalRecovered.toLocaleString("en-US");
+		let Country = jdata.Countries[77].Country;
+		let TotalConfirmed = jdata.Countries[77].TotalConfirmed.toLocaleString("en-US");
+		let TotalDeaths = jdata.Countries[77].TotalDeaths.toLocaleString("en-US");
 		
-		let newConfirmed = jdata.Countries[76].NewConfirmed.toLocaleString("en-US");
-		let newDeaths = jdata.Countries[76].NewDeaths.toLocaleString("en-US");
-		let newRecovered = jdata.Countries[76].NewRecovered.toLocaleString("en-US");
+		let newConfirmed = jdata.Countries[77].NewConfirmed.toLocaleString("en-US");
+		let newDeaths = jdata.Countries[77].NewDeaths.toLocaleString("en-US");
 		
 		
 		document.getElementById('country_name').innerHTML = Country;
 		document.getElementById('total').innerHTML = TotalConfirmed;
-		document.getElementById('recovered').innerHTML = TotalRecovered;
 		document.getElementById('deaths').innerHTML = TotalDeaths;
 		
 		document.getElementById('newtotal').innerHTML = "+"+newConfirmed+"/Day";
-		document.getElementById('newrecovered').innerHTML = "+"+newRecovered+"/Day";
 		document.getElementById('newdeaths').innerHTML = "+"+newDeaths+"/Day";
 		
 		
@@ -411,7 +402,6 @@ transform:translate(-50%);
 	function func(){
 	document.getElementById('country_name').innerHTML = "Loading...";
 	document.getElementById('total').innerHTML = "Loading...";
-	document.getElementById('recovered').innerHTML = "Loading...";
 	document.getElementById('deaths').innerHTML = "Loading...";
 	
 	var selectindex = document.getElementById('selectCountry').selectedIndex;
@@ -419,20 +409,16 @@ transform:translate(-50%);
 	let Country = apidata.Countries[selectindex-1].Country;
 	let TotalConfirmed = apidata.Countries[selectindex-1].TotalConfirmed.toLocaleString("en-US");
 	let TotalDeaths = apidata.Countries[selectindex-1].TotalDeaths.toLocaleString("en-US");
-	let TotalRecovered = apidata.Countries[selectindex-1].TotalRecovered.toLocaleString("en-US");
 	
 	let newConfirmed = apidata.Countries[selectindex-1].NewConfirmed.toLocaleString("en-US");
 	let newDeaths = apidata.Countries[selectindex-1].NewDeaths.toLocaleString("en-US");
-	let newRecovered = apidata.Countries[selectindex-1].NewRecovered.toLocaleString("en-US");
 	
 	
 	document.getElementById('country_name').innerHTML = Country;
 	document.getElementById('total').innerHTML = TotalConfirmed;
-	document.getElementById('recovered').innerHTML = TotalRecovered;
 	document.getElementById('deaths').innerHTML = TotalDeaths;
 	
 	document.getElementById('newtotal').innerHTML = "+"+newConfirmed+"/Day";
-	document.getElementById('newrecovered').innerHTML = "+"+newRecovered+"/Day";
 	document.getElementById('newdeaths').innerHTML = "+"+newDeaths+"/Day";
 	
 
